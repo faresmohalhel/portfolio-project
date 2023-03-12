@@ -9,10 +9,14 @@
 }
 
 :root {
-  --main-color: rgb(18, 186, 252);
+  /* --main-color: #12bafc; */
+  /* --main-color: #e9657a; */
+  /* --main-color: #f5e9cf; */
+  --main-color: #91d8e4;
   --secondary-color: #ccd6f6;
   --tertiary-color: #7d87a4;
-  --main-section: #232d53;
+  /* --main-section: #232d53; */
+  --main-section: #2b3467;
   --fourth-color: #9ea2af;
   --secondary-section: #11233f;
 }
@@ -46,14 +50,14 @@ body {
 }
 
 .navbar {
-  background-color: var(--main-section);
-  background-image: linear-gradient(
+  background-color: rgba(10, 25, 47, 0.3);
+  /* background-image: linear-gradient(
       to top,
       rgba(10, 25, 47, 0.7),
       rgba(10, 25, 47, 0.7)
     ),
     url("./img/topography.svg");
-  background-repeat: repeat;
+  background-repeat: repeat; */
 }
 
 .logo-img {
@@ -90,7 +94,56 @@ body {
   /* padding: 8rem 0; */
   display: flex;
   flex-direction: column;
+
   /* justify-content: space-around; */
+}
+/*  */
+@import url(https://fonts.googleapis.com/css?family=Anonymous+Pro);
+
+.big-text:nth-child(3) {
+  position: relative;
+  /* color: hsl(0, 0%, 68%); */
+  font-weight: bold;
+  /* font-family: "Anonymous Pro", monospace; */
+  /* letter-spacing: 7px; */
+  overflow: hidden;
+  border-right: 2px solid hsl(0, 0%, 80%);
+  white-space: nowrap;
+  animation: typewriter 4s steps(44) 1s 1 normal both,
+    blinkTextCursor 500ms infinite;
+}
+
+@keyframes typewriter {
+  from {
+    width: 0;
+  }
+  to {
+    width: 710px;
+  }
+}
+@keyframes blinkTextCursor {
+  from {
+    border-right-color: hsl(0, 0%, 80%);
+  }
+  to {
+    border-right-color: transparent;
+  }
+}
+/*  */
+@keyframes cursor {
+  0%,
+  100% {
+    border-color: #212121;
+  }
+}
+
+@keyframes text {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 21.5ch;
+  }
 }
 
 .big-text {
@@ -107,12 +160,24 @@ body {
 
 .button-main {
   /* padding: 2rem 4rem; */
-  border: solid var(--main-color) 1px;
+  border: solid var(--secondary-color) 1px;
   background-color: var(--main-section);
   width: 10rem;
   height: 4rem;
+
   border-radius: 3px;
+  box-shadow: 0 0 5px 0 var(--secondary-color) inset,
+    0 0 5px 2px var(--secondary-color);
   transition: all 0.3s;
+}
+
+.button-main a {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .button-main a:link,
@@ -169,7 +234,7 @@ body {
 }
 
 .techs {
-  margin-top: 20rem;
+  margin-top: 10rem;
 }
 
 .techs-title {
@@ -197,20 +262,43 @@ body {
   min-height: 100vh;
   min-width: 80vw;
 
-  margin: 8rem auto 0 auto;
+  margin: 0 auto;
 }
 
 .box {
-  margin-top: 20rem;
+  margin-top: 10rem;
   padding: 60px 0px;
 }
 
 .box-part {
   background-color: var(--secondary-section);
   border-radius: 3px;
-  padding: 60px 10px;
+  /* padding: 0 10px 60px 10px; */
+  padding-bottom: 2.4rem;
   margin: 30px 0px;
   border: solid var(--main-color) 1px;
+}
+
+.card-img {
+  /* width: 100%; */
+  /* height: 50%; */
+  height: 250px;
+  max-width: 100%;
+  max-height: 100%;
+  /* height: 50%; */
+  /* height: 50%; */
+  background-size: contain;
+  margin-bottom: 10px;
+  /* background-image: linear-gradient(
+    to top,
+    rgba(10, 25, 47, 0.9),
+    rgba(10, 25, 47, 0.9)
+  ); */
+  /* filter: hue-rotate(#232d53); */
+}
+
+.card-text {
+  padding: 0 10px;
 }
 
 .title {
@@ -235,6 +323,140 @@ body {
   margin-bottom: 5rem;
 }
 
+/* */
+/* The actual timeline (the vertical ruler) */
+#timeline {
+  padding: 7rem 0;
+}
+
+.timeline {
+  position: relative;
+  max-width: 80vw;
+  margin: 0 auto;
+}
+
+/* The actual timeline (the vertical ruler) */
+.timeline::after {
+  content: "";
+  position: absolute;
+  width: 2px;
+  background-color: var(--main-color);
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  z-index: -1;
+  margin-left: -3px;
+}
+
+/* Container around content */
+.timeline-container {
+  padding: 10px 40px;
+  position: relative;
+  background-color: inherit;
+  width: 50%;
+}
+
+/* The circles on the timeline */
+.timeline-container::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  right: -7px;
+  background-color: var(--secondary-color);
+  border: 3px solid var(--main-color);
+  top: 20px;
+  border-radius: 50%;
+  z-index: 3;
+}
+
+/* Place the timeline-container to the left */
+.left {
+  left: 0;
+}
+
+/* Place the timeline-container to the right */
+.right {
+  left: 50%;
+}
+
+/* Add arrows to the left timeline-container (pointing right) */
+.left::before {
+  content: " ";
+  height: 0;
+  position: absolute;
+  top: 22px;
+  width: 0;
+  z-index: 1;
+  right: 30px;
+  border: medium solid var(--main-color);
+  border-width: 10px 0 10px 10px;
+  border-color: transparent transparent transparent var(--main-section);
+}
+
+/* Add arrows to the right timeline-container (pointing left) */
+.right::before {
+  content: " ";
+  height: 0;
+  position: absolute;
+  top: 22px;
+  width: 0;
+  z-index: 1;
+  left: 30px;
+  border: medium solid var(--main-section);
+  border-width: 10px 10px 10px 0;
+  border-color: transparent var(--main-section) transparent transparent;
+}
+
+/* Fix the circle for timeline-containers on the right side */
+.right::after {
+  left: -16px;
+}
+
+/* The actual content */
+.content {
+  padding: 20px 30px;
+  background-color: var(--main-section);
+  color: var(--secondary-color);
+  position: relative;
+  border-radius: 6px;
+}
+
+/* Media queries - Responsive timeline on screens less than 600px wide */
+@media screen and (max-width: 600px) {
+  /* Place the timelime to the left */
+  .timeline::after {
+    left: 31px;
+  }
+
+  /* Full-width timeline-containers */
+  .timeline-container {
+    width: 100%;
+    padding-left: 70px;
+    padding-right: 25px;
+  }
+
+  /* Make sure that all arrows are pointing leftwards */
+  .timeline-container::before {
+    left: 60px;
+    border: medium solid var(--main-section);
+    border-width: 10px 10px 10px 0;
+    border-color: transparent var(--main-section) transparent transparent;
+  }
+
+  /* Make sure all circles are at the same spot */
+  .left::after,
+  .right::after {
+    left: 15px;
+  }
+
+  /* Make all right containers behave like the left ones */
+  .right {
+    left: 0%;
+  }
+}
+/* */
+
 #contacts {
   max-width: 80vw;
   min-height: 50vh;
@@ -249,8 +471,11 @@ body {
 #contacts .section-title {
   font-family: "Calibre", "Inter", "San Francisco", "SF Pro Text";
   font-weight: 600;
-  font-size: 4.8rem;
+  font-size: 3rem;
   color: var(--secondary-color);
+}
+#contacts {
+  margin-top: 3rem;
 }
 
 #contacts a {
@@ -258,18 +483,19 @@ body {
 }
 
 .contacts-socials {
-  margin-top: 4.8rem;
+  margin-top: 2rem;
   display: flex;
   justify-content: space-between;
+  gap: 2rem;
 }
 
 .socials-icon {
-  font-size: 6rem;
+  font-size: 4rem;
 }
 
-.socials-icon:nth-child(1) {
+/* .socials-icon:nth-child(1) {
   margin-right: 3.6rem;
-}
+} */
 
 @media screen and (max-width: 1000px) {
   .container-horizontal {
@@ -303,18 +529,59 @@ body {
 
   .about-text {
     margin: 0 auto;
+    width: 80%;
+    font-size: 1.2rem;
+    line-height: 1.3;
+  }
+
+  .img-about {
+    /* align-content: center; */
+    display: flex;
+    justify-content: center;
   }
 
   .profile-img {
-    width: 100%;
+    width: 80%;
   }
 
-  .techs-subheading {
+  .techs-subheadings {
+    justify-content: center;
+    align-items: center;
+    gap: 0.6rem;
     font-size: 1.4rem;
+    flex-direction: column;
   }
+
+  /*  */
+
+  .typewriter {
+    width: 21.5ch;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 4px solid #212121;
+    animation: cursor 1s step-start infinite,
+      text 5s steps(18) alternate infinite;
+  }
+
+  @keyframes cursor {
+    0%,
+    100% {
+      border-color: #212121;
+    }
+  }
+
+  @keyframes text {
+    0% {
+      width: 0;
+    }
+    100% {
+      width: 21.5ch;
+    }
+  }
+  /*  */
 
   #projects {
-    padding-top: 20rem;
+    padding-top: 10rem;
   }
 
   #contacts .section-title {
@@ -323,6 +590,12 @@ body {
 
   #contacts .socials-icon {
     font-size: 4rem;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .techs .section-title-text {
+    font-size: 1.8rem;
   }
 }
 

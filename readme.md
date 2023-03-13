@@ -1,5 +1,9 @@
 # portfolio project
 
+## link to the live website
+
+[live website](https://faresmohalhel.github.io/portfolio-project/)
+
 ## technologies used in this project
 
 - html

@@ -111,6 +111,7 @@ body {
 .container {
   /* margin: auto 0; */
   /* padding: 8rem 0; */
+  overflow: hidden;
   display: flex;
   flex-direction: column;
 

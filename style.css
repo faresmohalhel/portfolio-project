@@ -38,6 +38,7 @@ body {
     ),
     url("./img/topography.svg");
   background-repeat: repeat;
+  /* overflow: hidden; */
 }
 
 .main-color {
@@ -49,7 +50,7 @@ body {
 }
 
 .body-color {
-  background-color: var(--main-section);
+  /* background-color: var(--main-section); */
 }
 
 /* .nav {
@@ -57,19 +58,15 @@ body {
 } */
 
 .navbar {
-  background-color: rgba(20, 33, 64, 0.7);
-
-  box-shadow: 2px 0px 12px rgba(219, 217, 217, 0.5);
-  /* align-items: center; */
-  /* justify-items: center; */
+  /* background-color: rgba(20, 33, 64, 0.7);
+  box-shadow: 2px 0px 12px rgba(219, 217, 217, 0.5); */
+  width: 100vw;
   padding-bottom: 16px;
-  /* background-image: linear-gradient(
-      to top,
-      rgba(10, 25, 47, 0.7),
-      rgba(10, 25, 47, 0.7)
-    ),
-    url("./img/topography.svg");
-  background-repeat: repeat; */
+  backdrop-filter: blur(3px);
+}
+
+.nav-item {
+  z-index: 3;
 }
 
 .nav-item:hover {
@@ -104,6 +101,10 @@ body {
   justify-content: center;
 }
 
+/* .hero .big-text {
+  overflow: hidden;
+} */
+
 .secondary-text {
   color: var(--main-color);
 }
@@ -111,12 +112,16 @@ body {
 .container {
   /* margin: auto 0; */
   /* padding: 8rem 0; */
-  overflow: hidden;
   display: flex;
   flex-direction: column;
+  /* overflow: hidden; */
 
   /* justify-content: space-around; */
 }
+
+/* .container .big-text {
+  width: 100%;
+} */
 /*  */
 @import url(https://fonts.googleapis.com/css?family=Anonymous+Pro);
 
@@ -142,7 +147,7 @@ body {
     width: 0;
   }
   to {
-    width: 710px;
+    width: 70vw;
   }
 }
 @keyframes blinkTextCursor {
@@ -271,15 +276,38 @@ body {
   margin: 0 auto;
   margin-top: 5rem;
   justify-content: space-around;
+  position: relative;
 }
+
+/* .techs-square {
+  width: 50px;
+  height: 50px;
+  border: 1px solid var(--main-color);
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: auto;
+  width: 150px;
+  height: 150px;
+  transform: rotate(45deg) translateY(-50%);
+  z-index: -1;
+
+
+} */
 
 .techs-subheading {
   color: var(--fourth-color);
   font-size: 1.8rem;
+  position: relative;
 }
 
 .icon {
-  color: var(--main-color);
+  color: #600c4c;
+  font-size: 10rem;
+  z-index: -2;
+  top: 0;
+  transform: translateY(-33%);
+  position: absolute;
 }
 
 #projects {
